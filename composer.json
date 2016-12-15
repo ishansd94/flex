@@ -1,0 +1,21 @@
+{
+    "name": "ishan/flex",
+    "description": "this is my first mvc framework",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ishan Dassanayeke",
+            "email": "ishansd94@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/database": "^5.3",
+        "twig/twig": "^1.29"
+    }
+}
