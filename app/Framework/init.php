@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Initializing ths application.
+ */
+
     use App\Framework\Core\App;
 
 

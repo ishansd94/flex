@@ -2,3 +2,5 @@
 composer.lock
 /public/cache/views/*
 .idea
+/app/Framework/Storage/sessions/*
+/app/Framework/Storage/logs/*

@@ -15,9 +15,6 @@ class App
 
     private $controllerInstance;
 
-
-
-
     public function __construct()
     {
 

@@ -1,49 +1,44 @@
 <?php
 
-    use Illuminate\Database\Capsule\Manager as Capsule;
-    use App\Framework\Helpers\Config;
+/**
+ * This file is responsible for setting up the core services and bootstraping the app with parameters
+ */
 
-    //initiating eloqouent - ORM
-    $capsule =  new Capsule();
-
-    $capsule->addConnection([
-        'driver'    => Config::get("database.type"),
-        'host'      => Config::get("database.host"),
-        'database'  => Config::get("database.dbname"),
-        'username'  => Config::get("database.username"),
-        'password'  => Config::get("database.password"),
-        'charset'   => Config::get("database.charset"),
-        'collation' => Config::get("database.collation"),
-        'prefix'    => Config::get("database.prefix")
-    ]);
-
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
+    use App\Framework\Helpers\Session;
 
 
-    //initializing twig - templating engine
-    $loader = new Twig_Loader_Filesystem(INC_ROOT."/app/Resources/Views");
+    /**
+     *Applocation constansts are declared here.
+    */
 
-    $twig = new Twig_Environment($loader , [
-        'cache' => INC_ROOT."/public/cache/views",
-        'auto_reload' => true
-    ]);
+    //path for the twig view files.
+    define("PATH_TO_VIEWS" , INC_ROOT."/app/Resources/Views");
+    //path for the view file cache.
+    define("PATH_TO_CACHE" , INC_ROOT."/public/cache/views" );
 
-    function view( $file , $data=[] ) {
+    //path for the session file storege
+    define("PATH_TO_SESSIONS_STORGE" , INC_ROOT."/app/Framework/Storage/sessions");
+    //name for the sesstion
+    define("SESSION_NAME" , md5("flex.dev"));
+    //timeout for sessions -- 30min
+    define("SESSION_TIMEOUT" , 1800);
 
-        global $twig;
+    //Requiring in global level core services
+    require_once INC_ROOT."/app/Framework/services.php";
 
-        $paths = explode("." , $file);
+    //Boooting up the Eloquent ORM
+    initEloqouent();
 
-        $filepath = "";
+    //Initializing the user session
+    Session::start();
 
-        foreach ($paths as $path){
-            $filepath .= $path . "/";
-        }
 
-        echo $twig->render(rtrim($filepath , "/" ).".html" , $data);
 
-    }
+
+
+
+
+
 
 
 
