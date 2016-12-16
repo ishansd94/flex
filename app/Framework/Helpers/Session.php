@@ -65,8 +65,8 @@ class Session
         return (isset($_SESSION[$sessionName])) ? true : false ;
     }
 
-    public static function get($sessionName){
-        return $_SESSION[$sessionName];
+    public static function get($index){
+        return $_SESSION[$index];
     }
 
     public static function set($index , $value){
