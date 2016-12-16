@@ -23,6 +23,12 @@
     //timeout for sessions -- 30min
     define("SESSION_TIMEOUT" , 1800);
 
+    //define token name for session
+    define("TOKEN_NAME" , "_token");
+
+
+
+
     //Requiring in global level core services
     require_once INC_ROOT."/app/Framework/services.php";
 

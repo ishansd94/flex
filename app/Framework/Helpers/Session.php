@@ -73,6 +73,10 @@ class Session
         $_SESSION[$index] = $value;
     }
 
+    public static function delete($index){
+        unset($_SESSION[$index]);
+    }
+
     private static function validate(){
 
         /**
