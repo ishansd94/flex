@@ -7,7 +7,7 @@ class Token
 {
     public static function generate(){
 
-        $token = md5(uniqid());
+        $token = Hash::generate(32);
 
         Session::set(TOKEN_NAME , $token);
 

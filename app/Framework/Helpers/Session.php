@@ -17,7 +17,7 @@ class Session
 
         ini_set('session.use_strict_mode', 1);
         session_save_path(self::$location);
-        session_name(self::$name);
+        session_name(Hash::create(self::$name));
 
     }
 
@@ -43,7 +43,7 @@ class Session
     }
 
     public static function deleteCookie(){
-        Cookie::delete(session_name());
+        Cookie::delete(SESSION_NAME);
     }
 
 

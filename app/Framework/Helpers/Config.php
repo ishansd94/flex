@@ -4,7 +4,7 @@ namespace App\Framework\Helpers;
 
 class Config{
 
-    private static $_file = INC_ROOT."/app/Config/Configuration.ini";
+    private static $_file = PATH_TO_CONFIG;
 
     public static function get($path = null){
 
