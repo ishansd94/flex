@@ -1,0 +1,23 @@
+{ extends "_layout.twig" }
+
+{ block content }
+<p>Hello From Twiggiiii</p>
+
+<div class="">
+
+    { for user in users }
+
+        {{ user.name }}
+
+    { endfor}
+
+
+</div>
+
+
+
+
+
+
+
+{ endblock }

@@ -1,9 +1,9 @@
 /vendor/
 composer.lock
-/public/cache/views/*
-!public/cache/views/readme.md
 .idea
 /app/Framework/Storage/sessions/*
 !/app/Framework/Storage/sessions/readme.md
 /app/Framework/Storage/logs/*
 !/app/Framework/Storage/logs/readme.md
+/app/Framework/Storage/cache/views/*
+!/app/Framework/Storage/cache/views/readme.md

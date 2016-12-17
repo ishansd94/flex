@@ -19,6 +19,7 @@ class HomeController extends Controller
             var_dump(Session::info());
 
 
+
     }
 
 }

@@ -17,7 +17,7 @@
     //path for the twig view files.
     define("PATH_TO_VIEWS" , INC_ROOT."/app/Resources/Views");
     //path for the view file cache.
-    define("PATH_TO_CACHE" , INC_ROOT."/public/cache/views" );
+    define("PATH_TO_CACHE" , INC_ROOT."/app/Framework/Storage/cache/views" );
 
     //path for the session file storege
     define("PATH_TO_SESSIONS_STORGE" , INC_ROOT."/app/Framework/Storage/sessions");

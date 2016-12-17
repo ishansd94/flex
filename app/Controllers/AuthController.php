@@ -10,7 +10,10 @@ class AuthController extends Controller{
 
     public function login($param1="" , $param2 = ""){
 
-       return view("auth.index" , compact($param1, $param2));
+       $users = User::all()->toArray();
+
+
+       return view("auth.index" , compact('users'));
 
     }
 

@@ -36,7 +36,7 @@ class Cookie
 
     }
 
-    public static function create($name , $value , $expiry = COOKIE_EXPIRY , $path="/" , $domain = "" , $secure = false, $httponly = false){
+    public static function create($name , $value , $expiry = COOKIE_EXPIRY , $path="/" , $domain = "" , $secure = false, $httponly = true){
 
         $name = Hash::create($name);
 

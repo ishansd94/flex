@@ -12,7 +12,6 @@ use App\Framework\Helpers\Config;
  *    Twig view rendering function
  *
  */
-function view( $file , $data=[] ) {
 
     $loader = new Twig_Loader_Filesystem(PATH_TO_VIEWS);
 
@@ -21,18 +20,34 @@ function view( $file , $data=[] ) {
         'auto_reload' => true
     ]);
 
-    $paths = explode("." , $file);
+    $lexer = new Twig_Lexer($twig , [
 
-    $filepath = "";
+        "tag_block"     => ["{","}"],
+        "tag_variable"  => ["{{","}}"]
 
-    foreach ($paths as $path){
-        $filepath .= $path . "/";
+    ]);
+
+    $twig->setLexer($lexer);
+
+
+    function view( $file , $data=[] ) {
+
+        global $twig;
+
+        $paths = explode("." , $file);
+
+        $filepath = "";
+
+        foreach ($paths as $path){
+            $filepath .= $path . "/";
+        }
+
+        echo $twig->render(rtrim($filepath , "/" ).".twig" , $data);
+
     }
 
 
-    echo $twig->render(rtrim($filepath , "/" ).".html" , $data);
 
-}
 
 /**
  * Initializing Eloquent
