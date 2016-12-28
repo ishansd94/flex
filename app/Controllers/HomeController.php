@@ -16,9 +16,23 @@ class HomeController extends Controller
 {
     public function index(){
 
-            var_dump(Session::info());
+    		var_dump(Session::all());
 
+    		var_dump(Session::exists("_flash.msg"));
 
+            //Session::flash("msg" , "this is a flash msg");
+            
+
+            
+
+            //Session::set("_flash.msg", "something");
+            //Session::delete("_flash.msg");
+
+            
+
+            echo Session::flash("msg"));
+
+            var_dump(Session::all());
 
     }
 
